@@ -11,7 +11,10 @@ A:The MPC model is able to provide steering angle and throttle control signal by
 
 '''
 
-  Constant:
+*Constant:
+
+'''
+
             dt: gap between adjacent gaps
             N: number of steps
             v_max: max_velocity
@@ -26,7 +29,12 @@ A:The MPC model is able to provide steering angle and throttle control signal by
             cte_init: current cross track error
             epsi_init: current orientation error
 
-  Variables:
+'''
+
+* Variables:
+
+'''
+
             x_i: x coordinate, i= 1 to N
             y_i: y coordinate, i= 1 to N
             psi_i: angle, i= 1 to N
@@ -36,11 +44,20 @@ A:The MPC model is able to provide steering angle and throttle control signal by
             delta_i: steering angle, i= 1 to N-1
             a_i: throttle, i= 1 to N-1
 
-  Minimize  w_cte * sum_{i=1}^{n}(cte_i^2) +  w_epsi * sum_{i=1}^{n}(epsi_i^2) + w_v * sum_{i=1}^{n}((v_i - v_max)^2) +
+'''
+
+* Minimize  
+
+''' 
+            w_cte * sum_{i=1}^{n}(cte_i^2) +  w_epsi * sum_{i=1}^{n}(epsi_i^2) + w_v * sum_{i=1}^{n}((v_i - v_max)^2) +
             w_delta * sum_{i=1}^{n-1}(delta_i^2) + w_a * sum_{i=1}^{n-1}(a_i^2) +
             w_d_delta * sum_{i=1}^{n-2}((delta_(i+1) - delta_i)^2) + w_d_a * sum_{i=1}^{n-2}((a_(i+1) - a_i)^2)
 
-  Subject to
+'''
+
+* Subject to
+
+'''
             x_{i+1} = x{i} + v{i} * cos(psi{i}) * dt, i= 1 to N-1
             y_{i+1} = y{i} + v{i} * sin(psi{i}) * dt, i= 1 to N-1
             psi_{i+1} = psi{i} + v{i} / Lf * delta{i} * dt, i= 1 to N-1
