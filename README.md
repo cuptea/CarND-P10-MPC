@@ -9,7 +9,6 @@ Q: Student describes their model in detail. This includes the state, actuators a
 
 A:The MPC model is able to provide steering angle and throttle control signal by solving a optimization problem, which is formulated as follows:
 
-'''
 
 *Constant:
 
@@ -49,6 +48,7 @@ A:The MPC model is able to provide steering angle and throttle control signal by
 * Minimize  
 
 ''' 
+
             w_cte * sum_{i=1}^{n}(cte_i^2) +  w_epsi * sum_{i=1}^{n}(epsi_i^2) + w_v * sum_{i=1}^{n}((v_i - v_max)^2) +
             w_delta * sum_{i=1}^{n-1}(delta_i^2) + w_a * sum_{i=1}^{n-1}(a_i^2) +
             w_d_delta * sum_{i=1}^{n-2}((delta_(i+1) - delta_i)^2) + w_d_a * sum_{i=1}^{n-2}((a_(i+1) - a_i)^2)
@@ -58,6 +58,7 @@ A:The MPC model is able to provide steering angle and throttle control signal by
 * Subject to
 
 '''
+
             x_{i+1} = x{i} + v{i} * cos(psi{i}) * dt, i= 1 to N-1
             y_{i+1} = y{i} + v{i} * sin(psi{i}) * dt, i= 1 to N-1
             psi_{i+1} = psi{i} + v{i} / Lf * delta{i} * dt, i= 1 to N-1
