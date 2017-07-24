@@ -8,7 +8,9 @@ Self-Driving Car Engineer Nanodegree Program
 Q: Student describes their model in detail. This includes the state, actuators and update equations.
 
 A:The MPC model is able to provide steering angle and throttle control signal by solving a optimization problem, which is formulated as follows:
+
 '''
+
   Constant:
             dt: gap between adjacent gaps
             N: number of steps
@@ -59,6 +61,7 @@ A:The MPC model is able to provide steering angle and throttle control signal by
             psi_1 = psi_init
             cte_1 = cte_init
             epsi_1 = epsi_init
+
 '''
 
 ## Timestep Length and Elapsed Duration (N & dt)
