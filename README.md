@@ -85,16 +85,19 @@ A:The MPC model is able to provide steering angle and throttle control signal by
 ## Timestep Length and Elapsed Duration (N & dt)
 
 Q: Student discusses the reasoning behind the chosen N (timestep length) and dt (elapsed duration between timesteps) values. Additionally the student details the previous values tried.
+
 A: As discussed in the lecture, we first figure out a reasonable time window, i.e. N*dt, and then fine tune N and dt. During the tuning, we try to make the N larger and dt smaller. In this project, we first use small N, such as 7, later use the current 20. The dt is always 0.1.
 
 ## Polynomial Fitting and MPC Preprocessing
 
 Q: A polynomial is fitted to waypoints. If the student preprocesses waypoints, the vehicle state, and/or actuators prior to the MPC procedure it is described.
+
 A: Since the raw ptsx and ptsy are stored in global coordinate system, we have to turn them into the local coordinate system of the car. The detailed code could be found in between #120 to #126 lines of main.cpp.
 
 ## Model Predictive Control with Latency
 
 Q: The student implements Model Predictive Control that handles a 100 millisecond latency. Student provides details on how they deal with latency.
+
 A: We use the Kinetic model to predict the status in 100 ms and use it as the current status and pass it to mpc::solve function.
 
 
